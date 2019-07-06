@@ -12,6 +12,8 @@
 		73DA2A4F22D0AC8F003AF7B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DA2A4D22D0AC8F003AF7B4 /* Main.storyboard */; };
 		73DA2A5122D0AC91003AF7B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DA2A5022D0AC91003AF7B4 /* Assets.xcassets */; };
 		73DA2A5422D0AC91003AF7B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DA2A5222D0AC91003AF7B4 /* LaunchScreen.storyboard */; };
+		73DA2A5D22D0B255003AF7B4 /* TWDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A5C22D0B255003AF7B4 /* TWDiscoveryViewController.swift */; };
+		73DA2A6022D0B2C8003AF7B4 /* TWConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A5F22D0B2C8003AF7B4 /* TWConstant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		73DA2A5022D0AC91003AF7B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73DA2A5322D0AC91003AF7B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73DA2A5522D0AC91003AF7B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73DA2A5C22D0B255003AF7B4 /* TWDiscoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDiscoveryViewController.swift; sourceTree = "<group>"; };
+		73DA2A5F22D0B2C8003AF7B4 /* TWConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWConstant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,10 @@
 		73DA2A4822D0AC8F003AF7B4 /* TWMoment */ = {
 			isa = PBXGroup;
 			children = (
+				73DA2A6122D0B693003AF7B4 /* Moment */,
+				73DA2A5E22D0B2AC003AF7B4 /* Utility */,
 				73DA2A4922D0AC8F003AF7B4 /* AppDelegate.swift */,
+				73DA2A5C22D0B255003AF7B4 /* TWDiscoveryViewController.swift */,
 				73DA2A4B22D0AC8F003AF7B4 /* ViewController.swift */,
 				73DA2A4D22D0AC8F003AF7B4 /* Main.storyboard */,
 				73DA2A5022D0AC91003AF7B4 /* Assets.xcassets */,
@@ -62,6 +69,53 @@
 				73DA2A5522D0AC91003AF7B4 /* Info.plist */,
 			);
 			path = TWMoment;
+			sourceTree = "<group>";
+		};
+		73DA2A5E22D0B2AC003AF7B4 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				73DA2A5F22D0B2C8003AF7B4 /* TWConstant.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		73DA2A6122D0B693003AF7B4 /* Moment */ = {
+			isa = PBXGroup;
+			children = (
+				73DA2A6522D0B727003AF7B4 /* Data */,
+				73DA2A6422D0B70A003AF7B4 /* View */,
+				73DA2A6322D0B701003AF7B4 /* Model */,
+				73DA2A6222D0B6E6003AF7B4 /* ViewController */,
+			);
+			path = Moment;
+			sourceTree = "<group>";
+		};
+		73DA2A6222D0B6E6003AF7B4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		73DA2A6322D0B701003AF7B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73DA2A6422D0B70A003AF7B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		73DA2A6522D0B727003AF7B4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +189,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73DA2A5D22D0B255003AF7B4 /* TWDiscoveryViewController.swift in Sources */,
 				73DA2A4C22D0AC8F003AF7B4 /* ViewController.swift in Sources */,
 				73DA2A4A22D0AC8F003AF7B4 /* AppDelegate.swift in Sources */,
+				73DA2A6022D0B2C8003AF7B4 /* TWConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
