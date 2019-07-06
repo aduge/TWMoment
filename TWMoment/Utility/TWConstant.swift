@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 // 屏幕设置系列
-let kSCREEN_WIDTH = UIScreen.main.bounds.size.width
-let kSCREEN_HEIGHT = UIScreen.main.bounds.size.height
-let kSCREEN_BOUNDS = UIScreen.main.bounds
+let kScreenWidth = UIScreen.main.bounds.size.width
+let kScreenHeight = UIScreen.main.bounds.size.height
+let kScreenBounds = UIScreen.main.bounds
 
 let kStatubarHeight = UIApplication.shared.statusBarFrame.size.height   //状态栏高度
 let kNavBarHeight: CGFloat = 44.0   //导航栏高度
@@ -28,7 +28,7 @@ let kRightMargin      =    15
 // 正文字体
 let kTextFont         =    UIFont.systemFont(ofSize: 15)
 // 内容视图宽度
-let kTextWidth        =    kSCREEN_WIDTH - 60 - 25
+let kTextWidth        =    kScreenWidth - 60 - 25
 // 图片间距
 let kImagePadding     =    5
 // 图片宽度

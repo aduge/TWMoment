@@ -25,6 +25,9 @@
 		73DA2A7922D0CD1F003AF7B4 /* UIView+Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7822D0CD1F003AF7B4 /* UIView+Geometry.swift */; };
 		73DA2A7B22D0CDD0003AF7B4 /* TWWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7A22D0CDD0003AF7B4 /* TWWebImage.swift */; };
 		73DA2A7D22D0CE0E003AF7B4 /* TWWebImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7C22D0CE0E003AF7B4 /* TWWebImageCache.swift */; };
+		73DA2A7F22D0D71D003AF7B4 /* TWMomentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7E22D0D71D003AF7B4 /* TWMomentViewController.swift */; };
+		73DA2A8122D0D818003AF7B4 /* TWMomentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A8022D0D818003AF7B4 /* TWMomentCell.swift */; };
+		73DA2A8322D0DA48003AF7B4 /* TWImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A8222D0DA48003AF7B4 /* TWImageListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		73DA2A7822D0CD1F003AF7B4 /* UIView+Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Geometry.swift"; sourceTree = "<group>"; };
 		73DA2A7A22D0CDD0003AF7B4 /* TWWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWWebImage.swift; sourceTree = "<group>"; };
 		73DA2A7C22D0CE0E003AF7B4 /* TWWebImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWWebImageCache.swift; sourceTree = "<group>"; };
+		73DA2A7E22D0D71D003AF7B4 /* TWMomentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentViewController.swift; sourceTree = "<group>"; };
+		73DA2A8022D0D818003AF7B4 /* TWMomentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentCell.swift; sourceTree = "<group>"; };
+		73DA2A8222D0DA48003AF7B4 /* TWImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWImageListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 		73DA2A6222D0B6E6003AF7B4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				73DA2A7E22D0D71D003AF7B4 /* TWMomentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -137,6 +144,8 @@
 		73DA2A6422D0B70A003AF7B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73DA2A8022D0D818003AF7B4 /* TWMomentCell.swift */,
+				73DA2A8222D0DA48003AF7B4 /* TWImageListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,7 +247,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73DA2A8122D0D818003AF7B4 /* TWMomentCell.swift in Sources */,
 				73DA2A7322D0C029003AF7B4 /* TWMomentCommentModel.swift in Sources */,
+				73DA2A7F22D0D71D003AF7B4 /* TWMomentViewController.swift in Sources */,
+				73DA2A8322D0DA48003AF7B4 /* TWImageListView.swift in Sources */,
 				73DA2A5D22D0B255003AF7B4 /* TWDiscoveryViewController.swift in Sources */,
 				73DA2A4C22D0AC8F003AF7B4 /* ViewController.swift in Sources */,
 				73DA2A6922D0BE3F003AF7B4 /* TWHttpNetwork.swift in Sources */,

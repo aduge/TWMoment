@@ -28,7 +28,7 @@ class TWDiscoveryViewController: UIViewController, UITableViewDelegate, UITableV
     
     func loadViewFrame() {
         
-        let headview = UIView(frame: CGRect(x: 0, y: 0, width: kSCREEN_WIDTH, height: 20.0))
+        let headview = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 20.0))
         headview.backgroundColor = UIColor.clear
         
         self.tableView = UITableView(frame: self.view.bounds, style: .plain)
@@ -66,7 +66,7 @@ class TWDiscoveryViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = TWDiscoveryViewController()
+        let vc = TWMomentViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

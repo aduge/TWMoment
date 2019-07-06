@@ -12,8 +12,8 @@ import UIKit
 class TWUtility: NSObject {
     
     class func getSingleSize(singleSize:CGSize) -> CGSize {
-        let max_width = kSCREEN_WIDTH - 150
-        let max_height = kSCREEN_WIDTH - 130
+        let max_width = kScreenWidth - 150
+        let max_height = kScreenWidth - 130
         let image_width = singleSize.width
         let image_height = singleSize.height
         
