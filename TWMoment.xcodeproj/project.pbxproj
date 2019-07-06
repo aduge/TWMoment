@@ -21,6 +21,10 @@
 		73DA2A7122D0BFEC003AF7B4 /* TWMomentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7022D0BFEC003AF7B4 /* TWMomentModel.swift */; };
 		73DA2A7322D0C029003AF7B4 /* TWMomentCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7222D0C029003AF7B4 /* TWMomentCommentModel.swift */; };
 		73DA2A7522D0C07F003AF7B4 /* TWMomentSenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7422D0C07F003AF7B4 /* TWMomentSenderModel.swift */; };
+		73DA2A7722D0CCEC003AF7B4 /* TWUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7622D0CCEC003AF7B4 /* TWUtility.swift */; };
+		73DA2A7922D0CD1F003AF7B4 /* UIView+Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7822D0CD1F003AF7B4 /* UIView+Geometry.swift */; };
+		73DA2A7B22D0CDD0003AF7B4 /* TWWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7A22D0CDD0003AF7B4 /* TWWebImage.swift */; };
+		73DA2A7D22D0CE0E003AF7B4 /* TWWebImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7C22D0CE0E003AF7B4 /* TWWebImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		73DA2A7022D0BFEC003AF7B4 /* TWMomentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentModel.swift; sourceTree = "<group>"; };
 		73DA2A7222D0C029003AF7B4 /* TWMomentCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentCommentModel.swift; sourceTree = "<group>"; };
 		73DA2A7422D0C07F003AF7B4 /* TWMomentSenderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentSenderModel.swift; sourceTree = "<group>"; };
+		73DA2A7622D0CCEC003AF7B4 /* TWUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWUtility.swift; sourceTree = "<group>"; };
+		73DA2A7822D0CD1F003AF7B4 /* UIView+Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Geometry.swift"; sourceTree = "<group>"; };
+		73DA2A7A22D0CDD0003AF7B4 /* TWWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWWebImage.swift; sourceTree = "<group>"; };
+		73DA2A7C22D0CE0E003AF7B4 /* TWWebImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWWebImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,8 @@
 				73DA2A6722D0BDE9003AF7B4 /* ImageCache */,
 				73DA2A6622D0BDDB003AF7B4 /* Network */,
 				73DA2A5F22D0B2C8003AF7B4 /* TWConstant.swift */,
+				73DA2A7622D0CCEC003AF7B4 /* TWUtility.swift */,
+				73DA2A7822D0CD1F003AF7B4 /* UIView+Geometry.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -151,6 +161,8 @@
 		73DA2A6722D0BDE9003AF7B4 /* ImageCache */ = {
 			isa = PBXGroup;
 			children = (
+				73DA2A7A22D0CDD0003AF7B4 /* TWWebImage.swift */,
+				73DA2A7C22D0CE0E003AF7B4 /* TWWebImageCache.swift */,
 			);
 			path = ImageCache;
 			sourceTree = "<group>";
@@ -233,8 +245,12 @@
 				73DA2A6B22D0BEA2003AF7B4 /* TWMomentDataCenter.swift in Sources */,
 				73DA2A4A22D0AC8F003AF7B4 /* AppDelegate.swift in Sources */,
 				73DA2A6F22D0BFC5003AF7B4 /* TWMomentUserModel.swift in Sources */,
+				73DA2A7D22D0CE0E003AF7B4 /* TWWebImageCache.swift in Sources */,
+				73DA2A7B22D0CDD0003AF7B4 /* TWWebImage.swift in Sources */,
 				73DA2A6D22D0BEFE003AF7B4 /* TWMomentNetwork.swift in Sources */,
 				73DA2A7522D0C07F003AF7B4 /* TWMomentSenderModel.swift in Sources */,
+				73DA2A7922D0CD1F003AF7B4 /* UIView+Geometry.swift in Sources */,
+				73DA2A7722D0CCEC003AF7B4 /* TWUtility.swift in Sources */,
 				73DA2A7122D0BFEC003AF7B4 /* TWMomentModel.swift in Sources */,
 				73DA2A6022D0B2C8003AF7B4 /* TWConstant.swift in Sources */,
 			);
