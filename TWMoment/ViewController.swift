@@ -17,8 +17,11 @@ class ViewController : UITabBarController {
         self.tabBar.layer.borderWidth = 0.5
         self.tabBar.layer.borderColor = UIColor(red: 0.85 , green: 0.85, blue: 0.85, alpha: 1.0).cgColor
         self.tabBar.tintColor = UIColor(red: 14.0/255.0 , green: 178.0/255.0, blue: 10.0/255.0, alpha: 1.0)
+        
         loadViewFrame()
         
+        //预加载数据
+        TWMomentDataCenter.loadData()
     }
 
     func loadViewFrame() {

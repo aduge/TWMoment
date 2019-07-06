@@ -14,6 +14,13 @@
 		73DA2A5422D0AC91003AF7B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DA2A5222D0AC91003AF7B4 /* LaunchScreen.storyboard */; };
 		73DA2A5D22D0B255003AF7B4 /* TWDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A5C22D0B255003AF7B4 /* TWDiscoveryViewController.swift */; };
 		73DA2A6022D0B2C8003AF7B4 /* TWConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A5F22D0B2C8003AF7B4 /* TWConstant.swift */; };
+		73DA2A6922D0BE3F003AF7B4 /* TWHttpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A6822D0BE3F003AF7B4 /* TWHttpNetwork.swift */; };
+		73DA2A6B22D0BEA2003AF7B4 /* TWMomentDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A6A22D0BEA2003AF7B4 /* TWMomentDataCenter.swift */; };
+		73DA2A6D22D0BEFE003AF7B4 /* TWMomentNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A6C22D0BEFE003AF7B4 /* TWMomentNetwork.swift */; };
+		73DA2A6F22D0BFC5003AF7B4 /* TWMomentUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A6E22D0BFC5003AF7B4 /* TWMomentUserModel.swift */; };
+		73DA2A7122D0BFEC003AF7B4 /* TWMomentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7022D0BFEC003AF7B4 /* TWMomentModel.swift */; };
+		73DA2A7322D0C029003AF7B4 /* TWMomentCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7222D0C029003AF7B4 /* TWMomentCommentModel.swift */; };
+		73DA2A7522D0C07F003AF7B4 /* TWMomentSenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7422D0C07F003AF7B4 /* TWMomentSenderModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +33,13 @@
 		73DA2A5522D0AC91003AF7B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73DA2A5C22D0B255003AF7B4 /* TWDiscoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDiscoveryViewController.swift; sourceTree = "<group>"; };
 		73DA2A5F22D0B2C8003AF7B4 /* TWConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWConstant.swift; sourceTree = "<group>"; };
+		73DA2A6822D0BE3F003AF7B4 /* TWHttpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWHttpNetwork.swift; sourceTree = "<group>"; };
+		73DA2A6A22D0BEA2003AF7B4 /* TWMomentDataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentDataCenter.swift; sourceTree = "<group>"; };
+		73DA2A6C22D0BEFE003AF7B4 /* TWMomentNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentNetwork.swift; sourceTree = "<group>"; };
+		73DA2A6E22D0BFC5003AF7B4 /* TWMomentUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentUserModel.swift; sourceTree = "<group>"; };
+		73DA2A7022D0BFEC003AF7B4 /* TWMomentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentModel.swift; sourceTree = "<group>"; };
+		73DA2A7222D0C029003AF7B4 /* TWMomentCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentCommentModel.swift; sourceTree = "<group>"; };
+		73DA2A7422D0C07F003AF7B4 /* TWMomentSenderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentSenderModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +88,8 @@
 		73DA2A5E22D0B2AC003AF7B4 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				73DA2A6722D0BDE9003AF7B4 /* ImageCache */,
+				73DA2A6622D0BDDB003AF7B4 /* Network */,
 				73DA2A5F22D0B2C8003AF7B4 /* TWConstant.swift */,
 			);
 			path = Utility;
@@ -100,6 +116,10 @@
 		73DA2A6322D0B701003AF7B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				73DA2A6E22D0BFC5003AF7B4 /* TWMomentUserModel.swift */,
+				73DA2A7022D0BFEC003AF7B4 /* TWMomentModel.swift */,
+				73DA2A7222D0C029003AF7B4 /* TWMomentCommentModel.swift */,
+				73DA2A7422D0C07F003AF7B4 /* TWMomentSenderModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,8 +134,25 @@
 		73DA2A6522D0B727003AF7B4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				73DA2A6A22D0BEA2003AF7B4 /* TWMomentDataCenter.swift */,
+				73DA2A6C22D0BEFE003AF7B4 /* TWMomentNetwork.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		73DA2A6622D0BDDB003AF7B4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				73DA2A6822D0BE3F003AF7B4 /* TWHttpNetwork.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		73DA2A6722D0BDE9003AF7B4 /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ImageCache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,9 +226,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73DA2A7322D0C029003AF7B4 /* TWMomentCommentModel.swift in Sources */,
 				73DA2A5D22D0B255003AF7B4 /* TWDiscoveryViewController.swift in Sources */,
 				73DA2A4C22D0AC8F003AF7B4 /* ViewController.swift in Sources */,
+				73DA2A6922D0BE3F003AF7B4 /* TWHttpNetwork.swift in Sources */,
+				73DA2A6B22D0BEA2003AF7B4 /* TWMomentDataCenter.swift in Sources */,
 				73DA2A4A22D0AC8F003AF7B4 /* AppDelegate.swift in Sources */,
+				73DA2A6F22D0BFC5003AF7B4 /* TWMomentUserModel.swift in Sources */,
+				73DA2A6D22D0BEFE003AF7B4 /* TWMomentNetwork.swift in Sources */,
+				73DA2A7522D0C07F003AF7B4 /* TWMomentSenderModel.swift in Sources */,
+				73DA2A7122D0BFEC003AF7B4 /* TWMomentModel.swift in Sources */,
 				73DA2A6022D0B2C8003AF7B4 /* TWConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
