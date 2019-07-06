@@ -28,7 +28,23 @@
 		73DA2A7F22D0D71D003AF7B4 /* TWMomentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7E22D0D71D003AF7B4 /* TWMomentViewController.swift */; };
 		73DA2A8122D0D818003AF7B4 /* TWMomentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A8022D0D818003AF7B4 /* TWMomentCell.swift */; };
 		73DA2A8322D0DA48003AF7B4 /* TWImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A8222D0DA48003AF7B4 /* TWImageListView.swift */; };
+		73DA2A8E22D0FA7F003AF7B4 /* TWMomentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A8D22D0FA7F003AF7B4 /* TWMomentTests.swift */; };
+		73DA2A9522D0FFE7003AF7B4 /* TWHttpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A6822D0BE3F003AF7B4 /* TWHttpNetwork.swift */; };
+		73DA2A9622D1006B003AF7B4 /* TWUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7622D0CCEC003AF7B4 /* TWUtility.swift */; };
+		73DA2A9722D1032C003AF7B4 /* TWWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7A22D0CDD0003AF7B4 /* TWWebImage.swift */; };
+		73DA2A9822D10330003AF7B4 /* TWWebImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7C22D0CE0E003AF7B4 /* TWWebImageCache.swift */; };
+		73DA2A9922D10516003AF7B4 /* TWConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A5F22D0B2C8003AF7B4 /* TWConstant.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		73DA2A9022D0FA7F003AF7B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73DA2A3E22D0AC8F003AF7B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73DA2A4522D0AC8F003AF7B4;
+			remoteInfo = TWMoment;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		73DA2A4622D0AC8F003AF7B4 /* TWMoment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TWMoment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,10 +70,20 @@
 		73DA2A7E22D0D71D003AF7B4 /* TWMomentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentViewController.swift; sourceTree = "<group>"; };
 		73DA2A8022D0D818003AF7B4 /* TWMomentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentCell.swift; sourceTree = "<group>"; };
 		73DA2A8222D0DA48003AF7B4 /* TWImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWImageListView.swift; sourceTree = "<group>"; };
+		73DA2A8B22D0FA7F003AF7B4 /* TWMomentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TWMomentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		73DA2A8D22D0FA7F003AF7B4 /* TWMomentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentTests.swift; sourceTree = "<group>"; };
+		73DA2A8F22D0FA7F003AF7B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		73DA2A4322D0AC8F003AF7B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73DA2A8822D0FA7F003AF7B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				73DA2A4822D0AC8F003AF7B4 /* TWMoment */,
+				73DA2A8C22D0FA7F003AF7B4 /* TWMomentTests */,
 				73DA2A4722D0AC8F003AF7B4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				73DA2A4622D0AC8F003AF7B4 /* TWMoment.app */,
+				73DA2A8B22D0FA7F003AF7B4 /* TWMomentTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +212,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		73DA2A8C22D0FA7F003AF7B4 /* TWMomentTests */ = {
+			isa = PBXGroup;
+			children = (
+				73DA2A8D22D0FA7F003AF7B4 /* TWMomentTests.swift */,
+				73DA2A8F22D0FA7F003AF7B4 /* Info.plist */,
+			);
+			path = TWMomentTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -204,6 +241,24 @@
 			productReference = 73DA2A4622D0AC8F003AF7B4 /* TWMoment.app */;
 			productType = "com.apple.product-type.application";
 		};
+		73DA2A8A22D0FA7F003AF7B4 /* TWMomentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73DA2A9222D0FA7F003AF7B4 /* Build configuration list for PBXNativeTarget "TWMomentTests" */;
+			buildPhases = (
+				73DA2A8722D0FA7F003AF7B4 /* Sources */,
+				73DA2A8822D0FA7F003AF7B4 /* Frameworks */,
+				73DA2A8922D0FA7F003AF7B4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				73DA2A9122D0FA7F003AF7B4 /* PBXTargetDependency */,
+			);
+			name = TWMomentTests;
+			productName = TWMomentTests;
+			productReference = 73DA2A8B22D0FA7F003AF7B4 /* TWMomentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,6 +271,10 @@
 				TargetAttributes = {
 					73DA2A4522D0AC8F003AF7B4 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					73DA2A8A22D0FA7F003AF7B4 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 73DA2A4522D0AC8F003AF7B4;
 					};
 				};
 			};
@@ -233,6 +292,7 @@
 			projectRoot = "";
 			targets = (
 				73DA2A4522D0AC8F003AF7B4 /* TWMoment */,
+				73DA2A8A22D0FA7F003AF7B4 /* TWMomentTests */,
 			);
 		};
 /* End PBXProject section */
@@ -245,6 +305,13 @@
 				73DA2A5422D0AC91003AF7B4 /* LaunchScreen.storyboard in Resources */,
 				73DA2A5122D0AC91003AF7B4 /* Assets.xcassets in Resources */,
 				73DA2A4F22D0AC8F003AF7B4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73DA2A8922D0FA7F003AF7B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +343,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		73DA2A8722D0FA7F003AF7B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73DA2A9622D1006B003AF7B4 /* TWUtility.swift in Sources */,
+				73DA2A8E22D0FA7F003AF7B4 /* TWMomentTests.swift in Sources */,
+				73DA2A9822D10330003AF7B4 /* TWWebImageCache.swift in Sources */,
+				73DA2A9522D0FFE7003AF7B4 /* TWHttpNetwork.swift in Sources */,
+				73DA2A9922D10516003AF7B4 /* TWConstant.swift in Sources */,
+				73DA2A9722D1032C003AF7B4 /* TWWebImage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		73DA2A9122D0FA7F003AF7B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73DA2A4522D0AC8F003AF7B4 /* TWMoment */;
+			targetProxy = 73DA2A9022D0FA7F003AF7B4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		73DA2A4D22D0AC8F003AF7B4 /* Main.storyboard */ = {
@@ -448,6 +536,44 @@
 			};
 			name = Release;
 		};
+		73DA2A9322D0FA7F003AF7B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TWMomentTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = none.TWMomentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TWMoment.app/TWMoment";
+			};
+			name = Debug;
+		};
+		73DA2A9422D0FA7F003AF7B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TWMomentTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = none.TWMomentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TWMoment.app/TWMoment";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -465,6 +591,15 @@
 			buildConfigurations = (
 				73DA2A5922D0AC91003AF7B4 /* Debug */,
 				73DA2A5A22D0AC91003AF7B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73DA2A9222D0FA7F003AF7B4 /* Build configuration list for PBXNativeTarget "TWMomentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73DA2A9322D0FA7F003AF7B4 /* Debug */,
+				73DA2A9422D0FA7F003AF7B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

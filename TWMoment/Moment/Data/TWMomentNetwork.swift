@@ -12,7 +12,7 @@ import UIKit
 class TWMomentNetwork: NSObject {
     
     class func getUserInformation(completion: @escaping (_ model: TWMomentUserModel) -> ()) {
-        TWHttpNetwork.get(urlString:"https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith") { (data :Optional<Any>?) in
+        _ = TWHttpNetwork.get(urlString:"https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith") { (data :Optional<Any>?) in
             if data is NSDictionary {
                 let dictionary = data as! NSDictionary
                 let userModel = TWMomentUserModel()
@@ -27,7 +27,7 @@ class TWMomentNetwork: NSObject {
     
     
     class func getMomentArray(completion: @escaping (_ array: NSArray) -> ()) {
-        TWHttpNetwork.get(urlString:"https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith/tweets") { (data : Optional<Any>?) in
+        _ = TWHttpNetwork.get(urlString:"https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith/tweets") { (data : Optional<Any>?) in
             
             let resultArray = NSMutableArray()
             if let tweetArray: NSArray = data as? NSArray

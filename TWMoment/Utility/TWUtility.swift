@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class TWUtility: NSObject {
-    
+    // 调整图片大小
     class func getSingleSize(singleSize:CGSize) -> CGSize {
         let max_width = kScreenWidth - 150
         let max_height = kScreenWidth - 130
