@@ -18,12 +18,7 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
     var headerView: UIView!
     var coverImageView: UIImageView!
     var headImageView: UIImageView!
-    
-    var textField: UITextField!
-    var totalKeybordHeight: CGFloat!
-    var isDelete: Int!
-    
-    var selectIndexPath:IndexPath!
+    var refreshControl: UIRefreshControl!
     
     
     override func viewDidLoad() {
@@ -40,8 +35,6 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
     
     // 加载视图
     func loadViewFrame() {
-        
-        self.isDelete = 0
         
         // 封面
         let imageView = UIImageView(frame: CGRect(x: 0, y: -kTopHeight, width: kScreenWidth, height: 270))
@@ -84,26 +77,11 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.register(TWMomentCell.self, forCellReuseIdentifier: cellIdentifer as String)
         self.view.addSubview(self.tableView)
         
-        // 评论视图
-        self.textField = UITextField()
-        textField.returnKeyType = .done
-        textField.delegate = self
-        textField.backgroundColor = UIColor.white
-        textField.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.8).cgColor
-        textField.layer.borderWidth = 1
-        textField.keyboardAppearance = .default
-        
-        if  textField.isFirstResponder {
-            
-            textField.resignFirstResponder()
-            textField.becomeFirstResponder()
-        }
-        
-        textField.frame = CGRect(x: 0, y: kScreenHeight, width: kScreenWidth, height: 40)
-        UIApplication.shared.keyWindow?.addSubview(textField)
-        
-        textField.becomeFirstResponder()
-        textField.resignFirstResponder()
+        //添加刷新
+        refreshControl = UIRefreshControl();
+        refreshControl.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "松手刷新新")
+        self.tableView.addSubview(refreshControl)
     }
     
     // 加载数据
@@ -153,6 +131,21 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         self.momentList.replaceObject(at: (indexPath?.row)!, with: moment)
         
         self.tableView.reloadRows(at: [indexPath!], with: .none)
+    }
+    
+    //刷新
+    @objc func refreshData() {
+        TWMomentDataCenter.reloadMomentArray { (momentArray: NSMutableArray) in
+            self.momentList = momentArray
+            self.stopRefrest()
+        }
+    }
+    
+    @objc func stopRefrest(){
+        DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
+            self.tableView.reloadData()
+        }
     }
     
 }

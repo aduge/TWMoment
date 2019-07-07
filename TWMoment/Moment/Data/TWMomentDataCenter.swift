@@ -22,4 +22,11 @@ class TWMomentDataCenter: NSObject {
             userModel = userInfo
         }
     }
+    
+    class func reloadMomentArray(completion: @escaping (_ array: NSMutableArray) -> ()) {
+        TWMomentNetwork.getMomentArray { (momentArray:NSArray) in
+            momentList = momentArray.mutableCopy() as? NSMutableArray;
+            completion(momentList ?? [])
+        }
+    }
 }
