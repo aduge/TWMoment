@@ -19,8 +19,10 @@ class TWHttpNetwork: NSObject {
         let request = URLRequest(url: url!)
         let session = URLSession(configuration: config)
         let task = session.dataTask(with: request) { (data,response,error) in
-            let result = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-            completion(result)
+            if (data != nil) {
+                let result = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                completion(result)
+            }
         }
         task.resume()
         return task

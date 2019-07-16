@@ -10,15 +10,15 @@ import UIKit
 
 class TWMomentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TWMomentCellDelegate, UITextFieldDelegate {
     
-    let cellIdentifer: NSString = "momentCell"
-    
     var userModel: TWMomentUserModel!
-    var momentList: NSMutableArray!
     var tableView: UITableView!
     var headerView: UIView!
     var coverImageView: UIImageView!
     var headImageView: UIImageView!
     var refreshControl: UIRefreshControl!
+    
+    var handlerList: Array<TWMomentCellProtocol>!
+    var cellHandler: TWMomentCellProtocol!
     
     
     override func viewDidLoad() {
@@ -74,7 +74,7 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.estimatedRowHeight = 0
         self.tableView.tableFooterView = UIView()
         self.tableView.tableHeaderView = self.headerView
-        self.tableView.register(TWMomentCell.self, forCellReuseIdentifier: cellIdentifer as String)
+        self.tableView.register(TWMomentCell.self, forCellReuseIdentifier: self.cellHandler.cellIdentifier as String)
         self.view.addSubview(self.tableView)
         
         //添加刷新
@@ -86,35 +86,35 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
     
     // 加载数据
     func loadViewData() {
-        self.momentList = TWMomentDataCenter.momentList
         self.userModel = TWMomentDataCenter.userModel
+        
+        // 数据装配
+        self.cellHandler = TWMomentCellHandler.init(momentList: TWMomentDataCenter.momentList, cellDelegate: self)
+        if (self.cellHandler != nil) {
+            handlerList = Array()
+            handlerList.append(self.cellHandler!)
+        }
     }
     
-    //MARK： Table cell delegate
+    //MARK： TableView delegate
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return handlerList.count;
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if (self.momentList != nil) {
-            return self.momentList.count
-        }
-        return 0
+        let sectionHanler: TWMomentCellProtocol = self.handlerList[section]
+        return sectionHanler.tableView(tableView:tableView, section:section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: TWMomentCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer as String, for: indexPath) as! TWMomentCell
-        cell.selectionStyle = .none
-        cell.backgroundColor = UIColor.white
-        cell.moment = self.momentList[indexPath.row] as? TWMomentModel
-        cell.delegate = self
-        cell.tag = indexPath.row
-        
-        return cell
+        let sectionHanler: TWMomentCellProtocol = self.handlerList[indexPath.section]
+        return sectionHanler.tableView(tableView: tableView, indexPath: indexPath as NSIndexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let moment: TWMomentModel = self.momentList.object(at: indexPath.row) as! TWMomentModel
-        return moment.rowHeight ?? 200
+        let sectionHanler: TWMomentCellProtocol = self.handlerList[indexPath.section]
+        return sectionHanler.tableView(tableView: tableView, indexPath: indexPath as NSIndexPath)
     }
 
     
@@ -125,10 +125,10 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         
         let indexPath = self.tableView.indexPath(for: cell)
         
-        let moment:TWMomentModel = (self.momentList[indexPath!.row] as? TWMomentModel)!
+        let moment:TWMomentModel = (self.cellHandler.momentList![indexPath!.row] as? TWMomentModel)!
         moment.isFullText = !(moment.isFullText ?? false)
         
-        self.momentList.replaceObject(at: (indexPath?.row)!, with: moment)
+        self.cellHandler.momentList!.replaceObject(at: (indexPath?.row)!, with: moment)
         
         self.tableView.reloadRows(at: [indexPath!], with: .none)
     }
@@ -136,7 +136,7 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
     //刷新
     @objc func refreshData() {
         TWMomentDataCenter.reloadMomentArray { (momentArray: NSMutableArray) in
-            self.momentList = momentArray
+            self.cellHandler.momentList = momentArray
             self.stopRefrest()
         }
     }

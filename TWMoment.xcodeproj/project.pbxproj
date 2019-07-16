@@ -34,6 +34,8 @@
 		73DA2A9722D1032C003AF7B4 /* TWWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7A22D0CDD0003AF7B4 /* TWWebImage.swift */; };
 		73DA2A9822D10330003AF7B4 /* TWWebImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A7C22D0CE0E003AF7B4 /* TWWebImageCache.swift */; };
 		73DA2A9922D10516003AF7B4 /* TWConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A5F22D0B2C8003AF7B4 /* TWConstant.swift */; };
+		73DA2A9E22DCC482003AF7B4 /* TWMomentCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A9D22DCC482003AF7B4 /* TWMomentCellProtocol.swift */; };
+		73DA2AA022DCC6EB003AF7B4 /* TWMomentCellHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A9F22DCC6EB003AF7B4 /* TWMomentCellHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		73DA2A8B22D0FA7F003AF7B4 /* TWMomentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TWMomentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DA2A8D22D0FA7F003AF7B4 /* TWMomentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentTests.swift; sourceTree = "<group>"; };
 		73DA2A8F22D0FA7F003AF7B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73DA2A9D22DCC482003AF7B4 /* TWMomentCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TWMomentCellProtocol.swift; path = Protocol/TWMomentCellProtocol.swift; sourceTree = "<group>"; };
+		73DA2A9F22DCC6EB003AF7B4 /* TWMomentCellHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TWMomentCellHandler.swift; path = Protocol/TWMomentCellHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,8 @@
 		73DA2A6122D0B693003AF7B4 /* Moment */ = {
 			isa = PBXGroup;
 			children = (
+				73DA2A9D22DCC482003AF7B4 /* TWMomentCellProtocol.swift */,
+				73DA2A9F22DCC6EB003AF7B4 /* TWMomentCellHandler.swift */,
 				73DA2A6522D0B727003AF7B4 /* Data */,
 				73DA2A6422D0B70A003AF7B4 /* View */,
 				73DA2A6322D0B701003AF7B4 /* Model */,
@@ -327,6 +333,7 @@
 				73DA2A7F22D0D71D003AF7B4 /* TWMomentViewController.swift in Sources */,
 				73DA2A8322D0DA48003AF7B4 /* TWImageListView.swift in Sources */,
 				73DA2A5D22D0B255003AF7B4 /* TWDiscoveryViewController.swift in Sources */,
+				73DA2AA022DCC6EB003AF7B4 /* TWMomentCellHandler.swift in Sources */,
 				73DA2A4C22D0AC8F003AF7B4 /* ViewController.swift in Sources */,
 				73DA2A6922D0BE3F003AF7B4 /* TWHttpNetwork.swift in Sources */,
 				73DA2A6B22D0BEA2003AF7B4 /* TWMomentDataCenter.swift in Sources */,
@@ -339,6 +346,7 @@
 				73DA2A7922D0CD1F003AF7B4 /* UIView+Geometry.swift in Sources */,
 				73DA2A7722D0CCEC003AF7B4 /* TWUtility.swift in Sources */,
 				73DA2A7122D0BFEC003AF7B4 /* TWMomentModel.swift in Sources */,
+				73DA2A9E22DCC482003AF7B4 /* TWMomentCellProtocol.swift in Sources */,
 				73DA2A6022D0B2C8003AF7B4 /* TWConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
