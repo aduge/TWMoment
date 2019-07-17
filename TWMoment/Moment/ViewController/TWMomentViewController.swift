@@ -28,9 +28,7 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.backgroundColor = UIColor.white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "moment_camera"), style: .plain, target: nil, action: nil)
         
-        loadViewData()
-        
-        loadViewFrame()
+        loadViewDataAndFrame()
     }
     
     // 加载视图
@@ -85,14 +83,21 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // 加载数据
-    func loadViewData() {
-        self.userModel = TWMomentDataCenter.userModel
-        
-        // 数据装配
-        self.cellHandler = TWMomentCellHandler.init(momentList: TWMomentDataCenter.momentList, cellDelegate: self)
-        if (self.cellHandler != nil) {
-            handlerList = Array()
-            handlerList.append(self.cellHandler!)
+    func loadViewDataAndFrame() {
+        TWMomentDataCenter.loadData { (momentList: NSMutableArray, userModel: TWMomentUserModel) in
+            self.userModel = userModel
+            
+            // 数据装配
+            self.cellHandler = TWMomentCellHandler.init(momentList: momentList, cellDelegate: self)
+            if (self.cellHandler != nil) {
+                self.handlerList = Array()
+                self.handlerList.append(self.cellHandler!)
+            }
+            
+            // 数据加载完成后再加载页面
+            DispatchQueue.main.async {
+                self.loadViewFrame()
+            }
         }
     }
     

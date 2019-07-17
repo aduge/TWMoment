@@ -21,7 +21,7 @@ class ViewController : UITabBarController {
         loadViewFrame()
         
         //预加载数据
-        TWMomentDataCenter.loadData()
+        TWMomentDataCenter.preLoadData()
     }
 
     func loadViewFrame() {
