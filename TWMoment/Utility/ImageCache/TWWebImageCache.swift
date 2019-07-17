@@ -12,12 +12,15 @@ import Foundation
 class TWWebImageChche: NSObject {
     
     private static var cache: NSCache = NSCache<NSString, NSData>()
+    private static var lock = NSLock()
     
     class func readCacheFromUrl(url:NSString)->NSData?{
         var data:NSData?
         let path:NSString=TWWebImageChche.getFullCachePathFromUrl(url: url)
         // 从内存缓存读取
+        lock.lock()
         data = cache.object(forKey: url)
+        lock.unlock()
         
         // 从磁盘读取，并写入内存缓存中
         if (data == nil) {
@@ -30,7 +33,9 @@ class TWWebImageChche: NSObject {
                 }
             }
             if (data != nil) {
+                lock.lock()
                 cache.setObject(data!, forKey: url)
+                lock.unlock()
             }
         }
         
@@ -39,7 +44,9 @@ class TWWebImageChche: NSObject {
     
     class func writeCacheToUrl(url:NSString, data:NSData){
         // 写入内存缓存
+        lock.lock()
         cache.setObject(data, forKey: url)
+        lock.unlock()
         
         // 写入磁盘缓存
         let path:NSString=TWWebImageChche.getFullCachePathFromUrl(url: url)

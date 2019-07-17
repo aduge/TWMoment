@@ -20,7 +20,7 @@ class TWMomentDataCenter: NSObject {
     class func preLoadData() {
         
         let workGroup: DispatchGroup = DispatchGroup()
-        let workQueue: DispatchQueue = DispatchQueue.init(label: "network_request_queue")
+        let workQueue: DispatchQueue = DispatchQueue.main
         
         workGroup.enter()
         TWMomentNetwork.getMomentArray { (momentArray:NSArray) in
