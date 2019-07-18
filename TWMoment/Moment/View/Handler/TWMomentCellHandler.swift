@@ -13,7 +13,7 @@ class TWMomentCellHandler: NSObject, TWMomentCellProtocol {
     
     var momentList: NSMutableArray?
     
-    var cellDelegate: TWMomentCellDelegate
+    weak var cellDelegate: TWMomentCellDelegate?
     
     var cellClass: String = "TWMomentCell"
     

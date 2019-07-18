@@ -130,7 +130,7 @@ class TWMomentCell: UITableViewCell {
         }
     }
     // 代理
-    var delegate: TWMomentCellDelegate?
+    weak var delegate: TWMomentCellDelegate?
     // 最大高度限制
     var maxLimitHeight: CGFloat!
     

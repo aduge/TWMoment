@@ -14,7 +14,6 @@ class TWDiscoveryViewController: UIViewController, UITableViewDelegate, UITableV
     
     var vcType: Int!
     var tableView: UITableView!
-    let vc = TWMomentViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +65,7 @@ class TWDiscoveryViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = TWMomentViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
