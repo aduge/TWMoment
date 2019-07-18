@@ -53,12 +53,19 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         imageViewt.setWebImage(url: self.userModel?.avatar as NSString?, defaultImage: nil, isCache: true)
         self.headImageView = imageViewt
         
+        let userLabel = UILabel(frame: CGRect(x: 10, y: imageViewt.centerY, width: imageViewt.left - 10, height: 20))
+        userLabel.font = UIFont.systemFont(ofSize: 17)
+        userLabel.textColor = UIColor.black
+        userLabel.textAlignment = .right
+        userLabel.text = self.userModel.userName
+        
         // 表头
         let view = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 270))
         view.backgroundColor = UIColor.clear
         view.isUserInteractionEnabled = true
         view.addSubview(coverImageView)
         view.addSubview(headImageView)
+        view.addSubview(userLabel)
         self.headerView = view
         
         // 表格
