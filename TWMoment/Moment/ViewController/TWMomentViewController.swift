@@ -88,7 +88,7 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
             self.userModel = userModel
             
             // 数据装配
-            self.cellHandler = TWMomentCellHandler.init(momentList: momentList, cellDelegate: self)
+            self.cellHandler = TWMomentCellHandler.init(momentList: momentList, cellDelegate: self, userModel: userModel)
             if (self.cellHandler != nil) {
                 self.handlerList = Array()
                 self.handlerList.append(self.cellHandler!)
@@ -136,6 +136,25 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         self.cellHandler.momentList!.replaceObject(at: (indexPath?.row)!, with: moment)
         
         self.tableView.reloadRows(at: [indexPath!], with: .none)
+    }
+    
+    // 删除
+    func didDeleMoment(cell: TWMomentCell) {
+        
+        print("删除")
+        
+        let alert = UIAlertController(title: "确定删除吗？", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "取消", style: .default, handler: { (action) in
+            // 取消
+        }))
+        
+        alert.addAction(UIAlertAction(title: "删除", style: .cancel, handler: { (action) in
+            // 删除
+            self.cellHandler.momentList!.remove(cell.moment)
+            self.tableView.reloadData()
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     //刷新
