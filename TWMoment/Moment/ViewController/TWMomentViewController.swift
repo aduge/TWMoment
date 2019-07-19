@@ -86,7 +86,7 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.separatorInset = .zero
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.estimatedRowHeight = 0
+        self.tableView.estimatedRowHeight = 200
         self.tableView.tableFooterView = UIView()
         self.tableView.tableHeaderView = self.headerView
         self.tableView.register(TWMomentCell.self, forCellReuseIdentifier: self.cellHandler.cellIdentifier as String)
@@ -120,7 +120,7 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
     
     //MARK： TableView delegate
     func numberOfSections(in tableView: UITableView) -> Int {
-        return handlerList.count;
+        return handlerList.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
