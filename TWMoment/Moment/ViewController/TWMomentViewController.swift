@@ -26,9 +26,19 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.title = "好友动态"
         self.view.backgroundColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "moment_camera"), style: .plain, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "moment_camera"), style: .plain, target: self, action: #selector(addNewMoment))
         
         loadViewDataAndFrame()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if (TWMomentDataCenter.isPublishedNewMoment ?? false) {
+            TWMomentDataCenter.loadData { (momnetList: NSMutableArray, userModel: TWMomentUserModel) in
+                self.cellHandler.momentList = momnetList
+                self.tableView.reloadData()
+                TWMomentDataCenter.isPublishedNewMoment = false
+            }
+        }
     }
     
     // 加载视图
@@ -172,11 +182,15 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    @objc func stopRefrest(){
+    @objc func stopRefrest() {
         DispatchQueue.main.async {
             self.refreshControl.endRefreshing()
             self.tableView.reloadData()
         }
+    }
+    
+    @objc func addNewMoment() {
+        self.navigationController?.pushViewController(TWAddNewMomentViewController(), animated: true)
     }
     
 }

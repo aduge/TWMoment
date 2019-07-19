@@ -12,8 +12,9 @@ import UIKit
 typealias loadDataCompletionBlock = (_ momentList: NSMutableArray, _ userModel: TWMomentUserModel) -> ()
 
 class TWMomentDataCenter: NSObject {
-    private static var userModel: TWMomentUserModel?
-    private static var momentList: NSMutableArray?
+    static var userModel: TWMomentUserModel?
+    static var momentList: NSMutableArray?
+    static var isPublishedNewMoment: Bool?
     
     private static var completion: loadDataCompletionBlock?
     

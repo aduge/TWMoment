@@ -36,6 +36,7 @@
 		73DA2A9922D10516003AF7B4 /* TWConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A5F22D0B2C8003AF7B4 /* TWConstant.swift */; };
 		73DA2AA022DCC6EB003AF7B4 /* TWMomentCellHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A9F22DCC6EB003AF7B4 /* TWMomentCellHandler.swift */; };
 		73DA2AA722DE1E0A003AF7B4 /* TWMomentCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2AA622DE1E0A003AF7B4 /* TWMomentCellProtocol.swift */; };
+		73DA2AA922E1B882003AF7B4 /* TWAddNewMomentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2AA822E1B882003AF7B4 /* TWAddNewMomentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		73DA2A8F22D0FA7F003AF7B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73DA2A9F22DCC6EB003AF7B4 /* TWMomentCellHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWMomentCellHandler.swift; sourceTree = "<group>"; };
 		73DA2AA622DE1E0A003AF7B4 /* TWMomentCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWMomentCellProtocol.swift; sourceTree = "<group>"; };
+		73DA2AA822E1B882003AF7B4 /* TWAddNewMomentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWAddNewMomentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				73DA2A7E22D0D71D003AF7B4 /* TWMomentViewController.swift */,
+				73DA2AA822E1B882003AF7B4 /* TWAddNewMomentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				73DA2A4C22D0AC8F003AF7B4 /* ViewController.swift in Sources */,
 				73DA2A6922D0BE3F003AF7B4 /* TWHttpNetwork.swift in Sources */,
 				73DA2A6B22D0BEA2003AF7B4 /* TWMomentDataCenter.swift in Sources */,
+				73DA2AA922E1B882003AF7B4 /* TWAddNewMomentViewController.swift in Sources */,
 				73DA2A4A22D0AC8F003AF7B4 /* AppDelegate.swift in Sources */,
 				73DA2AA722DE1E0A003AF7B4 /* TWMomentCellProtocol.swift in Sources */,
 				73DA2A6F22D0BFC5003AF7B4 /* TWMomentUserModel.swift in Sources */,
