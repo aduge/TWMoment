@@ -33,9 +33,9 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         if (TWMomentDataCenter.isPublishedNewMoment ?? false) {
-            TWMomentDataCenter.loadData { (momnetList: NSMutableArray, userModel: TWMomentUserModel) in
-                self.cellHandler.momentList = momnetList
-                self.tableView.reloadData()
+            TWMomentDataCenter.loadData { [weak self] (momnetList: NSMutableArray, userModel: TWMomentUserModel) in
+                self?.cellHandler.momentList = momnetList
+                self?.tableView.reloadData()
                 TWMomentDataCenter.isPublishedNewMoment = false
             }
         }
@@ -101,19 +101,19 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
     
     // 加载数据
     func loadViewDataAndFrame() {
-        TWMomentDataCenter.loadData { (momentList: NSMutableArray, userModel: TWMomentUserModel) in
-            self.userModel = userModel
+        TWMomentDataCenter.loadData { [weak self] (momentList: NSMutableArray, userModel: TWMomentUserModel) in
+            self?.userModel = userModel
             
             // 数据装配
-            self.cellHandler = TWMomentCellHandler.init(momentList: momentList, cellDelegate: self, userModel: userModel)
-            if (self.cellHandler != nil) {
-                self.handlerList = Array()
-                self.handlerList.append(self.cellHandler!)
+            self?.cellHandler = TWMomentCellHandler.init(momentList: momentList, cellDelegate: self!, userModel: userModel)
+            if (self?.cellHandler != nil) {
+                self?.handlerList = Array()
+                self?.handlerList.append((self?.cellHandler)!)
             }
             
             // 数据加载完成后再加载页面
             DispatchQueue.main.async {
-                self.loadViewFrame()
+                self?.loadViewFrame()
             }
         }
     }
@@ -176,9 +176,9 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
     
     //刷新
     @objc func refreshData() {
-        TWMomentDataCenter.reloadMomentArray { (momentArray: NSMutableArray) in
-            self.cellHandler.momentList = momentArray
-            self.stopRefrest()
+        TWMomentDataCenter.reloadMomentArray { [weak self] (momentArray: NSMutableArray) in
+            self?.cellHandler.momentList = momentArray
+            self?.stopRefrest()
         }
     }
     
