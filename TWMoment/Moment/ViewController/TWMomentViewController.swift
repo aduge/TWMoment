@@ -177,8 +177,10 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
     //刷新
     @objc func refreshData() {
         TWMomentDataCenter.reloadMomentArray { [weak self] (momentArray: NSMutableArray) in
-            self?.cellHandler.momentList = momentArray
-            self?.stopRefrest()
+            if let strongSelf = self {
+                strongSelf.cellHandler.momentList = momentArray
+                strongSelf.stopRefrest()
+            }
         }
     }
     
