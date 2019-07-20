@@ -18,9 +18,7 @@ class TWWebImageChche: NSObject {
         var data:NSData?
         let path:NSString=TWWebImageChche.getFullCachePathFromUrl(url: url)
         // 从内存缓存读取
-        lock.lock()
         data = cache.object(forKey: url)
-        lock.unlock()
         
         // 从磁盘读取，并写入内存缓存中
         if (data == nil) {
@@ -37,6 +35,9 @@ class TWWebImageChche: NSObject {
                 cache.setObject(data!, forKey: url)
                 lock.unlock()
             }
+        }
+        else {
+            print("命中内存缓存")
         }
         
         return data
