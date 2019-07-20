@@ -41,6 +41,10 @@ class TWAddNewMomentViewController: UIViewController {
         moment.sender = sender
         moment.content = textView.text
         
+        guard (moment.content != nil) else {
+            return
+        }
+        
         TWMomentDataCenter.momentList?.insert(moment, at: 0)
         TWMomentDataCenter.isPublishedNewMoment = true
         self.navigationController?.popViewController(animated: true)
