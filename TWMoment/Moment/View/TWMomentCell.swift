@@ -144,6 +144,21 @@ class TWMomentCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        // 解决复用导致图片加载异常的问题
+        imageListView.removeFromSuperview()
+        imageListView = nil
+        imageListView = TWImageListView(frame: .zero)
+        self.contentView.addSubview(imageListView)
+        
+        headImageView?.removeFromSuperview()
+        headImageView = UIImageView(frame: CGRect(x: 10, y: kBlnk, width: kFaceWidth, height: kFaceWidth))
+        headImageView?.contentMode = .scaleAspectFill
+        headImageView?.isUserInteractionEnabled = true
+        headImageView?.layer.masksToBounds = true
+        self.contentView.addSubview(headImageView!)
+    }
+    
     // 加载视图
     func addContentView() {
         
