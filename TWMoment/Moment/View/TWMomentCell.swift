@@ -152,6 +152,7 @@ class TWMomentCell: UITableViewCell {
         self.contentView.addSubview(imageListView)
         
         headImageView?.removeFromSuperview()
+        headImageView = nil
         headImageView = UIImageView(frame: CGRect(x: 10, y: kBlnk, width: kFaceWidth, height: kFaceWidth))
         headImageView?.contentMode = .scaleAspectFill
         headImageView?.isUserInteractionEnabled = true
