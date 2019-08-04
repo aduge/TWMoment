@@ -71,7 +71,7 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.separatorInset = .zero
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.estimatedRowHeight = 0
+        self.tableView.estimatedRowHeight = 200
         self.tableView.tableFooterView = UIView()
         self.tableView.tableHeaderView = self.headerView
         self.tableView.register(TWMomentCell.self, forCellReuseIdentifier: cellIdentifer as String)
@@ -104,7 +104,12 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         let cell: TWMomentCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer as String, for: indexPath) as! TWMomentCell
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.white
+        
+        let startTime: CFAbsoluteTime = CFAbsoluteTimeGetCurrent()
         cell.moment = self.momentList[indexPath.row] as? TWMomentModel
+        let linkTime: CFAbsoluteTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        print(linkTime)
+        
         cell.delegate = self
         cell.tag = indexPath.row
         

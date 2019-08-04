@@ -12,11 +12,13 @@ import UIKit
 class TWMomentNetwork: NSObject {
     
     class func getUserInformation(completion: @escaping (_ model: TWMomentUserModel) -> ()) {
-        _ = TWHttpNetwork.get(urlString:"https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith") { (data :Optional<Any>?) in
+        let urlString: NSString = "http://localhost:8080/userInfo"
+        let encodeUrlString = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+        _ = TWHttpNetwork.get(urlString:encodeUrlString!) { (data :Optional<Any>?) in
             if data is NSDictionary {
                 let dictionary = data as! NSDictionary
                 let userModel = TWMomentUserModel()
-                userModel.profileImage = dictionary.object(forKey: "profile-image") as? String
+                userModel.profileImage = dictionary.object(forKey: "profileImage") as? String
                 userModel.avatar = dictionary.object(forKey: "avatar") as? String
                 userModel.userName = dictionary.object(forKey: "username") as? String
                 userModel.nick = dictionary.object(forKey: "nick") as? String
@@ -27,7 +29,7 @@ class TWMomentNetwork: NSObject {
     
     
     class func getMomentArray(completion: @escaping (_ array: NSArray) -> ()) {
-        _ = TWHttpNetwork.get(urlString:"https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith/tweets") { (data : Optional<Any>?) in
+        _ = TWHttpNetwork.get(urlString:"http://localhost:8080/tweets") { (data : Optional<Any>?) in
             
             let resultArray = NSMutableArray()
             if let tweetArray: NSArray = data as? NSArray

@@ -150,7 +150,7 @@ class TWMomentCell: UITableViewCell {
         imageListView = nil
         imageListView = TWImageListView(frame: .zero)
         self.contentView.addSubview(imageListView)
-        
+
         headImageView?.removeFromSuperview()
         headImageView = nil
         headImageView = UIImageView(frame: CGRect(x: 10, y: kBlnk, width: kFaceWidth, height: kFaceWidth))

@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TWMoment/Moment/Data/TWMomentNetwork.swift"
-            timestampString = "584199741.524456"
+            filePath = "TWMoment/Moment/ViewController/TWMomentViewController.swift"
+            timestampString = "585489685.483758"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "getMomentArray(completion:)"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "stopRefrest()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TWMoment/Moment/ViewController/TWMomentViewController.swift"
-            timestampString = "585472193.647172"
+            filePath = "TWMoment/Moment/Data/TWMomentNetwork.swift"
+            timestampString = "586589617.2733459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "stopRefrest()"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "getMomentArray(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
