@@ -45,6 +45,14 @@ class TWAddNewMomentViewController: UIViewController {
             return
         }
         
+        // post请求，增加一条纪录
+        let params: NSMutableDictionary = NSMutableDictionary()
+        params.setObject(moment.content!, forKey: "content" as NSCopying)
+        TWHttpNetwork.post(urlString: "http://localhost:8080/addMoment", params: params) { (data : Optional<Any>?) in
+            
+        }
+            
+            
         TWMomentDataCenter.momentList?.insert(moment, at: 0)
         TWMomentDataCenter.isPublishedNewMoment = true
         self.navigationController?.popViewController(animated: true)
