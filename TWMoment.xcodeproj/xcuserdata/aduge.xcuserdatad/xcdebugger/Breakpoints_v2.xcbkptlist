@@ -6,32 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TWMoment/Moment/ViewController/TWMomentViewController.swift"
-            timestampString = "585489685.483758"
+            filePath = "TWMoment/Moment/Data/TWMomentDataCenter.swift"
+            timestampString = "586593748.351362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "stopRefrest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TWMoment/Moment/Data/TWMomentNetwork.swift"
-            timestampString = "586589617.2733459"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "getMomentArray(completion:)"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "preLoadData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +25,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TWMoment/Utility/Network/TWHttpNetwork.swift"
-            timestampString = "586593328.584307"
+            filePath = "TWMoment/Moment/Data/TWMomentDataCenter.swift"
+            timestampString = "586593748.351832"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "post(urlString:params:completion:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "preLoadData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TWMoment/Moment/Data/TWMomentDataCenter.swift"
+            timestampString = "586593748.352036"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "preLoadData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

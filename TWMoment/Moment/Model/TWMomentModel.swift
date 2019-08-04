@@ -24,4 +24,6 @@ class TWMomentModel: NSObject {
     var isFullText: Bool?
     // Moment对应的cell高度
     var rowHeight: CGFloat?
+    //是否自己发送
+    var isSendBySelf: Bool?
 }

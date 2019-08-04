@@ -11,21 +11,45 @@ import Foundation
 
 class TWWebImageChche: NSObject {
     
+    private static var cache: NSCache = NSCache<NSString, NSData>()
+    private static var lock = NSLock()
+    
     class func readCacheFromUrl(url:NSString)->NSData?{
         var data:NSData?
         let path:NSString=TWWebImageChche.getFullCachePathFromUrl(url: url)
-        if FileManager.default.fileExists(atPath: path as String) {
-            do {
-                data = try NSData(contentsOfFile: path as String, options: NSData.ReadingOptions.alwaysMapped)
+        // 从内存缓存读取
+        data = cache.object(forKey: url)
+        
+        // 从磁盘读取，并写入内存缓存中
+        if (data == nil) {
+            if FileManager.default.fileExists(atPath: path as String) {
+                do {
+                    data = try NSData(contentsOfFile: path as String, options: NSData.ReadingOptions.alwaysMapped)
+                }
+                catch {
+                    data = nil
+                }
             }
-            catch {
-                data = nil
+            if (data != nil) {
+                lock.lock()
+                cache.setObject(data!, forKey: url)
+                lock.unlock()
             }
         }
+        else {
+            print("命中内存缓存")
+        }
+        
         return data
     }
     
     class func writeCacheToUrl(url:NSString, data:NSData){
+        // 写入内存缓存
+        lock.lock()
+        cache.setObject(data, forKey: url)
+        lock.unlock()
+        
+        // 写入磁盘缓存
         let path:NSString=TWWebImageChche.getFullCachePathFromUrl(url: url)
         print(data.write(toFile: path as String, atomically: true))
     }

@@ -10,15 +10,15 @@ import UIKit
 
 class TWMomentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TWMomentCellDelegate, UITextFieldDelegate {
     
-    let cellIdentifer: NSString = "momentCell"
-    
     var userModel: TWMomentUserModel!
-    var momentList: NSMutableArray!
     var tableView: UITableView!
     var headerView: UIView!
     var coverImageView: UIImageView!
     var headImageView: UIImageView!
     var refreshControl: UIRefreshControl!
+    
+    var handlerList: Array<TWMomentCellProtocol>!
+    var cellHandler: TWMomentCellProtocol!
     
     
     override func viewDidLoad() {
@@ -26,11 +26,19 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.title = "好友动态"
         self.view.backgroundColor = UIColor.white
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "moment_camera"), style: .plain, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "moment_camera"), style: .plain, target: self, action: #selector(addNewMoment))
         
-        loadViewData()
-        
-        loadViewFrame()
+        loadViewDataAndFrame()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if (TWMomentDataCenter.isPublishedNewMoment ?? false) {
+            TWMomentDataCenter.loadData { [weak self] (momnetList: NSMutableArray, userModel: TWMomentUserModel) in
+                self?.cellHandler.momentList = momnetList
+                self?.tableView.reloadData()
+                TWMomentDataCenter.isPublishedNewMoment = false
+            }
+        }
     }
     
     // 加载视图
@@ -55,12 +63,19 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         imageViewt.setWebImage(url: self.userModel?.avatar as NSString?, defaultImage: nil, isCache: true)
         self.headImageView = imageViewt
         
+        let userLabel = UILabel(frame: CGRect(x: 10, y: imageViewt.centerY, width: imageViewt.left - 10, height: 20))
+        userLabel.font = UIFont.systemFont(ofSize: 17)
+        userLabel.textColor = UIColor.black
+        userLabel.textAlignment = .right
+        userLabel.text = self.userModel.userName
+        
         // 表头
         let view = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 270))
         view.backgroundColor = UIColor.clear
         view.isUserInteractionEnabled = true
         view.addSubview(coverImageView)
         view.addSubview(headImageView)
+        view.addSubview(userLabel)
         self.headerView = view
         
         // 表格
@@ -74,7 +89,7 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.estimatedRowHeight = 200
         self.tableView.tableFooterView = UIView()
         self.tableView.tableHeaderView = self.headerView
-        self.tableView.register(TWMomentCell.self, forCellReuseIdentifier: cellIdentifer as String)
+        self.tableView.register(TWMomentCell.self, forCellReuseIdentifier: self.cellHandler.cellIdentifier as String)
         self.view.addSubview(self.tableView)
         
         //添加刷新
@@ -85,41 +100,42 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // 加载数据
-    func loadViewData() {
-        self.momentList = TWMomentDataCenter.momentList
-        self.userModel = TWMomentDataCenter.userModel
+    func loadViewDataAndFrame() {
+        TWMomentDataCenter.loadData { [weak self] (momentList: NSMutableArray, userModel: TWMomentUserModel) in
+            self?.userModel = userModel
+            
+            // 数据装配
+            self?.cellHandler = TWMomentCellHandler.init(momentList: momentList, cellDelegate: self!, userModel: userModel)
+            if (self?.cellHandler != nil) {
+                self?.handlerList = Array()
+                self?.handlerList.append((self?.cellHandler)!)
+            }
+            
+            // 数据加载完成后再加载页面
+            DispatchQueue.main.async {
+                self?.loadViewFrame()
+            }
+        }
     }
     
-    //MARK： Table cell delegate
+    //MARK： TableView delegate
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return handlerList.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if (self.momentList != nil) {
-            return self.momentList.count
-        }
-        return 0
+        let sectionHanler: TWMomentCellProtocol = self.handlerList[section]
+        return sectionHanler.tableView(tableView:tableView, section:section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell: TWMomentCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer as String, for: indexPath) as! TWMomentCell
-        cell.selectionStyle = .none
-        cell.backgroundColor = UIColor.white
-        
-        let startTime: CFAbsoluteTime = CFAbsoluteTimeGetCurrent()
-        cell.moment = self.momentList[indexPath.row] as? TWMomentModel
-        let linkTime: CFAbsoluteTime = (CFAbsoluteTimeGetCurrent() - startTime);
-        print(linkTime)
-        
-        cell.delegate = self
-        cell.tag = indexPath.row
-        
-        return cell
+        let sectionHanler: TWMomentCellProtocol = self.handlerList[indexPath.section]
+        return sectionHanler.tableView(tableView: tableView, indexPath: indexPath as NSIndexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let moment: TWMomentModel = self.momentList.object(at: indexPath.row) as! TWMomentModel
-        return moment.rowHeight ?? 200
+        let sectionHanler: TWMomentCellProtocol = self.handlerList[indexPath.section]
+        return sectionHanler.tableView(tableView: tableView, indexPath: indexPath as NSIndexPath)
     }
 
     
@@ -130,27 +146,52 @@ class TWMomentViewController: UIViewController, UITableViewDelegate, UITableView
         
         let indexPath = self.tableView.indexPath(for: cell)
         
-        let moment:TWMomentModel = (self.momentList[indexPath!.row] as? TWMomentModel)!
+        let moment:TWMomentModel = (self.cellHandler.momentList![indexPath!.row] as? TWMomentModel)!
         moment.isFullText = !(moment.isFullText ?? false)
         
-        self.momentList.replaceObject(at: (indexPath?.row)!, with: moment)
+        self.cellHandler.momentList!.replaceObject(at: (indexPath?.row)!, with: moment)
         
         self.tableView.reloadRows(at: [indexPath!], with: .none)
     }
     
+    // 删除
+    func didDeleMoment(cell: TWMomentCell) {
+        
+        print("删除")
+        
+        let alert = UIAlertController(title: "确定删除吗？", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "取消", style: .default, handler: { (action) in
+            // 取消
+        }))
+        
+        alert.addAction(UIAlertAction(title: "删除", style: .cancel, handler: { (action) in
+            // 删除
+            self.cellHandler.momentList!.remove(cell.moment)
+            self.tableView.reloadData()
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     //刷新
     @objc func refreshData() {
-        TWMomentDataCenter.reloadMomentArray { (momentArray: NSMutableArray) in
-            self.momentList = momentArray
-            self.stopRefrest()
+        TWMomentDataCenter.reloadMomentArray { [weak self] (momentArray: NSMutableArray) in
+            if let strongSelf = self {
+                strongSelf.cellHandler.momentList = momentArray
+                strongSelf.stopRefrest()
+            }
         }
     }
     
-    @objc func stopRefrest(){
+    @objc func stopRefrest() {
         DispatchQueue.main.async {
             self.refreshControl.endRefreshing()
             self.tableView.reloadData()
         }
+    }
+    
+    @objc func addNewMoment() {
+        self.navigationController?.pushViewController(TWAddNewMomentViewController(), animated: true)
     }
     
 }

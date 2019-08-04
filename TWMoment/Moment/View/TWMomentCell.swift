@@ -11,6 +11,8 @@ import UIKit
 @objc protocol TWMomentCellDelegate {
     // 查看全文/收起
     @objc optional func didSelectFullText(cell: TWMomentCell)
+    // 删除
+    @objc optional func didDeleMoment(cell: TWMomentCell)
 }
 
 class TWMomentCell: UITableViewCell {
@@ -20,6 +22,10 @@ class TWMomentCell: UITableViewCell {
     var nameLab: UILabel?
     // 全文
     var showAllBtn: UIButton?
+    // 删除
+    var deleteBtn: UIButton?
+    //是否自己发送
+    var isSendbySelf: Bool?
     // 内容
     var linkLab: UILabel?
     // 图片
@@ -88,6 +94,12 @@ class TWMomentCell: UITableViewCell {
                 bottom = imageListView.bottom + CGFloat(kPaddingValue)
             }
             
+            deleteBtn?.frame = .zero
+            if (isSendbySelf!) {
+                deleteBtn?.frame = CGRect(x: (nameLab?.right)! - 30, y: bottom, width: 30.0, height: CGFloat(15))
+                bottom = bottom + 15
+            }
+            
             // 处理评论
             self.commentView.frame = .zero
             bgImageView.frame = .zero
@@ -130,7 +142,7 @@ class TWMomentCell: UITableViewCell {
         }
     }
     // 代理
-    var delegate: TWMomentCellDelegate?
+    weak var delegate: TWMomentCellDelegate?
     // 最大高度限制
     var maxLimitHeight: CGFloat!
     
@@ -200,6 +212,15 @@ class TWMomentCell: UITableViewCell {
         imageListView = TWImageListView(frame: .zero)
         self.contentView.addSubview(imageListView)
         
+        // 删除视图
+        deleteBtn = UIButton(type: .custom)
+        deleteBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        deleteBtn?.backgroundColor = UIColor.clear
+        deleteBtn?.setTitle("删除", for: .normal)
+        deleteBtn?.setTitleColor(UIColor(red: 0.28, green: 0.35, blue: 0.54, alpha: 1), for: .normal)
+        deleteBtn?.addTarget(self, action: #selector(deleteMoment(sender:)), for: .touchUpInside)
+        self.contentView.addSubview(deleteBtn!)
+        
         // 评论视图
         bgImageView = UIImageView()
         self.contentView.addSubview(bgImageView)
@@ -220,6 +241,20 @@ class TWMomentCell: UITableViewCell {
                     self.delegate?.didSelectFullText!(cell: self)
                 }
         })
+    }
+    
+    // 删除动态
+    @objc func deleteMoment(sender: UIButton) {
+        
+        deleteBtn?.titleLabel?.backgroundColor = UIColor.lightGray
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            
+            self.deleteBtn?.titleLabel?.backgroundColor = UIColor.clear
+            if self.delegate != nil {
+                
+                self.delegate?.didDeleMoment!(cell: self)
+            }
+        }
     }
 }
 
