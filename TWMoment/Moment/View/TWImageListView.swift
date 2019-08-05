@@ -53,7 +53,8 @@ class TWImageListView: UIView {
                 // 单张图片需要计算实际显示Size
                 if count == 1 {
                     
-                    let singleSize = TWUtility.getSingleSize(singleSize: CGSize(width: 500, height: 315))
+//                    let singleSize = TWUtility.getSingleSize(singleSize: CGSize(width: 500, height: 315))
+                    let singleSize = Utility.getSingleSize(CGSize(width: 500, height: 315))
                     frame = CGRect(x: 0.0, y: 0.0, width: singleSize.width, height: singleSize.height)
                 }
                 

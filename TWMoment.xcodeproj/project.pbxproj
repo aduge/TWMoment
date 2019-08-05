@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73860F6122F87D5400859997 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 73860F6022F87D5400859997 /* Utility.m */; };
 		73DA2A4A22D0AC8F003AF7B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A4922D0AC8F003AF7B4 /* AppDelegate.swift */; };
 		73DA2A4C22D0AC8F003AF7B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA2A4B22D0AC8F003AF7B4 /* ViewController.swift */; };
 		73DA2A4F22D0AC8F003AF7B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DA2A4D22D0AC8F003AF7B4 /* Main.storyboard */; };
@@ -50,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		73860F5E22F87D5300859997 /* TWMoment-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TWMoment-Bridging-Header.h"; sourceTree = "<group>"; };
+		73860F5F22F87D5400859997 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		73860F6022F87D5400859997 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		73DA2A4622D0AC8F003AF7B4 /* TWMoment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TWMoment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DA2A4922D0AC8F003AF7B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73DA2A4B22D0AC8F003AF7B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,11 +134,14 @@
 		73DA2A5E22D0B2AC003AF7B4 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				73860F5F22F87D5400859997 /* Utility.h */,
+				73860F6022F87D5400859997 /* Utility.m */,
 				73DA2A6722D0BDE9003AF7B4 /* ImageCache */,
 				73DA2A6622D0BDDB003AF7B4 /* Network */,
 				73DA2A5F22D0B2C8003AF7B4 /* TWConstant.swift */,
 				73DA2A7622D0CCEC003AF7B4 /* TWUtility.swift */,
 				73DA2A7822D0CD1F003AF7B4 /* UIView+Geometry.swift */,
+				73860F5E22F87D5300859997 /* TWMoment-Bridging-Header.h */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -296,6 +303,7 @@
 				TargetAttributes = {
 					73DA2A4522D0AC8F003AF7B4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					73DA2A8A22D0FA7F003AF7B4 = {
 						CreatedOnToolsVersion = 10.1;
@@ -365,6 +373,7 @@
 				73DA2A6D22D0BEFE003AF7B4 /* TWMomentNetwork.swift in Sources */,
 				73DA2A7522D0C07F003AF7B4 /* TWMomentSenderModel.swift in Sources */,
 				73DA2A7922D0CD1F003AF7B4 /* UIView+Geometry.swift in Sources */,
+				73860F6122F87D5400859997 /* Utility.m in Sources */,
 				73DA2A7722D0CCEC003AF7B4 /* TWUtility.swift in Sources */,
 				73DA2A7122D0BFEC003AF7B4 /* TWMomentModel.swift in Sources */,
 				73DA2A6022D0B2C8003AF7B4 /* TWConstant.swift in Sources */,
@@ -534,6 +543,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TWMoment/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -542,6 +552,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = none.TWMoment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TWMoment/Utility/TWMoment-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -551,6 +563,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TWMoment/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -559,6 +572,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = none.TWMoment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TWMoment/Utility/TWMoment-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
